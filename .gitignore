@@ -1,0 +1,17 @@
+# Archivos de configuración específicos de entorno
+instance/
+
+# Archivos generados automáticamente
+__pycache__/
+*.pyc
+
+# Entorno virtual de Python (si estás utilizando virtualenv o similar)
+venv/
+ENV/
+
+# Archivos de registro y otros archivos creados por la aplicación
+*.log
+*.db
+
+# Archivo de registro de errores de Flask
+logs/

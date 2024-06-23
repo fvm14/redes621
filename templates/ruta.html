@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ruta más corta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Ruta más corta encontrada:</h1>
+    <p>Camino: {{ camino }}</p>
+    <p>Distancia: {{ distancia }}</p>
+    <img src="data:image/png;base64,{{ image_data }}" alt="Gráfico de la red con ruta destacada">
+
+    <br>
+    <a href="/">Volver</a>
+</body>
+</html>
