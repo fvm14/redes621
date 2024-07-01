@@ -2,10 +2,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #f9f9f9; /* Fondo claro */
 }
 
 h1 {
     color: #333;
+    text-align: center;
+    font-size: 36px; /* Tamaño de título */
+    margin-bottom: 20px; /* Espacio entre título y contenido */
 }
 
 /* Estilos específicos para las imágenes */
@@ -13,21 +17,43 @@ img {
     max-width: 100%;
     height: auto;
     margin-top: 20px;
+    display: block; /* Agregar display: block */
+    margin: 0 auto; /* Centrar imagen horizontalmente */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 /* Formulario de entrada en index.html */
 form {
     margin-top: 20px;
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px; /* Espacio entre formulario y contenido */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 form label {
     font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre etiqueta y input */
 }
 
 form input[type="number"],
 form input[type="submit"] {
     padding: 8px;
     margin-top: 5px;
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50; /* Fondo verde */
+    color: #fff; /* Texto blanco */
+    cursor: pointer; /* Cursor de mano */
+}
+
+form input[type="submit"]:hover {
+    background-color: #3e8e41; /* Fondo verde oscuro */
 }
 
 /* Enlace de vuelta en ruta.html */
@@ -35,12 +61,13 @@ a {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #007bff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 5px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 a:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Fondo azul oscuro */
 }
