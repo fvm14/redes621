@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Página de Inicio</title>
+</head>
+<body>
+    <h1>Bienvenido a la Página de Inicio</h1>
+    <p>Por favor selecciona una opción:</p>
+    <form action="/grafo_graficado">
+        <input type="submit" value="Ver Gráfico Original">
+    </form>
+    <form action="/dijkstra">
+        <input type="submit" value="Calcular Ruta">
+    </form>
+</body>
+</html>

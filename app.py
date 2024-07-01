@@ -3,20 +3,23 @@ from grafica import Grafica  # Importa la clase Grafica del archivo grafica.py
 
 app = Flask(__name__)
 
-# Crear una instancia de la clase Grafica
 grafo = Grafica()
-
-# Rutas para las páginas
 @app.route('/')
 def index():
-    # Generar la imagen del grafo vacío
     image_data = grafo.graficar()
+    return render_template('index2.html', image_data=image_data)
+@app.route('/dijkstra')
+def dijkstra():
+    if request.method == 'POST':
+        return redirect(url_for('calcular_ruta'))
+    else:
+        image_data = grafo.graficar()
+        return render_template('index.html', image_data=image_data)
 
-    return render_template('index.html', image_data=image_data)
 
 @app.route('/calcular_ruta', methods=['GET', 'POST'])
 def calcular_ruta():
-    global grafo  # Declarar grafo como global para poder accederlo y modificarlo
+    global grafo
 
     if request.method == 'POST':
         nodo_inicial = int(request.form['nodo_inicial'])
@@ -35,6 +38,12 @@ def calcular_ruta():
         return render_template('ruta.html', camino=camino, distancia=distancia, image_data=image_data)
 
     return redirect(url_for('index'))
+
+@app.route('/grafo_graficado')
+def grafo_graficado():
+    image_data = grafo.graficar()
+    return render_template('graficooriginal.html', image_data=image_data)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
