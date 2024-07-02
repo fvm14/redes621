@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Administrador</h1>
+    <form action="/administrador" method="post">
+        <label for="csv_data">Pega el contenido del archivo CSV aquí:</label><br>
+        <textarea id="csv_data" name="csv_data" rows="10" cols="50" required></textarea><br>
+        <input type="submit" value="Actualizar CSV">
+    </form>
+    <br>
+    <a href="/">Volver al inicio</a>
+</body>
+</html>
