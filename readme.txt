@@ -1,4 +1,6 @@
-# Para Windows (en el directorio deseado)
+Pasos para ejecutar el proyecto:
+
 python -m venv venv
 venv\Scripts\activate
-pip install flask matplotlib networkx
+pip install -r requirements.txt
+flask run
