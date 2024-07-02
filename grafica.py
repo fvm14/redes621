@@ -1,7 +1,8 @@
+import pandas as pd
+import networkx as nx
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import networkx as nx
 import io
 import base64
 
@@ -120,14 +121,8 @@ class Grafica:
         return data
 
     def configurar_grafica(self):
-        for id in range(1, 7):
-            self.agregarVertice(id)
-        self.agregarArista(1, 6, 14)
-        self.agregarArista(1, 2, 7)
-        self.agregarArista(1, 3, 9)
-        self.agregarArista(2, 3, 10)
-        self.agregarArista(2, 4, 15)
-        self.agregarArista(3, 4, 11)
-        self.agregarArista(3, 6, 2)
-        self.agregarArista(4, 5, 6)
-        self.agregarArista(5, 6, 9)
+        df = pd.read_csv('data.csv')
+        for node in set(df['nodo_origen']).union(set(df['nodo_destino'])):
+            self.agregarVertice(node)
+        for index, row in df.iterrows():
+            self.agregarArista(row['nodo_origen'], row['nodo_destino'], row['peso'])

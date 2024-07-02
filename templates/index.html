@@ -7,14 +7,17 @@
 </head>
 <body>
     <h1>Gráfico de la Red</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
     <img src="data:image/png;base64,{{ image_data }}" alt="Gráfico de la red">
 
     <form action="/calcular_ruta" method="post">
         <label for="nodo_inicial">Nodo Inicial:</label>
-        <input type="number" id="nodo_inicial" name="nodo_inicial" min="1" max="6" required>
+        <input type="number" id="nodo_inicial" name="nodo_inicial" min="1" required>
         <br>
         <label for="nodo_final">Nodo Final:</label>
-        <input type="number" id="nodo_final" name="nodo_final" min="1" max="6" required>
+        <input type="number" id="nodo_final" name="nodo_final" min="1" required>
         <br>
         <input type="submit" value="Calcular Ruta">
     </form>

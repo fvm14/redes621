@@ -7,11 +7,18 @@
 </head>
 <body>
     <h1>Ruta más corta encontrada:</h1>
-    <p>Camino: {{ camino }}</p>
-    <p>Distancia: {{ distancia }}</p>
-    <img src="data:image/png;base64,{{ image_data }}" alt="Gráfico de la red con ruta destacada">
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% else %}
+        <p>Camino: {{ camino }}</p>
+        <p>Distancia: {{ distancia }}</p>
+        <img src="data:image/png;base64,{{ image_data }}" alt="Gráfico de la red con ruta destacada">
+    {% endif %}
 
     <br>
     <a href="/">Volver</a>
+    <form action="/dijkstra">
+        <input type="submit" value="Calcular Ruta">
+    </form>
 </body>
 </html>
