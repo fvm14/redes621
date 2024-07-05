@@ -1,55 +1,61 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 40px; /* Aumento del margen */
     background-color: #f9f9f9; /* Fondo claro */
+    font-size: 16px; /* Tamaño de fuente base */
+    line-height: 1.6; /* Espaciado entre líneas */
 }
 
 h1 {
     color: #333;
     text-align: center;
-    font-size: 36px; /* Tamaño de título */
-    margin-bottom: 20px; /* Espacio entre título y contenido */
+    font-size: 48px; /* Tamaño de título aumentado */
+    margin-bottom: 30px; /* Aumento del espacio entre título y contenido */
 }
 
 /* Estilos específicos para las imágenes */
 img {
     max-width: 100%;
     height: auto;
-    margin-top: 20px;
+    margin-top: 30px; /* Aumento del margen superior */
     display: block; /* Agregar display: block */
     margin: 0 auto; /* Centrar imagen horizontalmente */
     border-radius: 10px; /* Borde redondeado */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra aumentada */
 }
 
 /* Formulario de entrada en index.html */
 form {
-    margin-top: 20px;
+    margin-top: 30px; /* Aumento del margen superior */
     background-color: #fff; /* Fondo blanco */
-    padding: 20px; /* Espacio entre formulario y contenido */
+    padding: 30px; /* Aumento del espacio entre formulario y contenido */
     border: 1px solid #ddd; /* Borde gris claro */
     border-radius: 10px; /* Borde redondeado */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra aumentada */
 }
 
 form label {
     font-weight: bold;
-    margin-bottom: 10px; /* Espacio entre etiqueta y input */
+    margin-bottom: 15px; /* Aumento del espacio entre etiqueta y input */
 }
 
-form input[type="number"],
+form input[type="text"], /* Estilo para los campos de texto */
 form input[type="submit"] {
-    padding: 8px;
-    margin-top: 5px;
+    padding: 15px; /* Aumento del padding */
+    margin-top: 10px; /* Aumento del margen superior */
     border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 5px; /* Borde redondeado */
+    border-radius: 8px; /* Borde redondeado */
+    font-size: 20px; /* Tamaño de fuente aumentado */
+    display: inline-block; /* Añadir display inline-block */
+    width: 300px; /* Ancho fijo para los campos de entrada */
 }
 
 form input[type="submit"] {
     background-color: #4CAF50; /* Fondo verde */
     color: #fff; /* Texto blanco */
     cursor: pointer; /* Cursor de mano */
+    width: 100%; /* Ancho al 100% para expandirse horizontalmente */
 }
 
 form input[type="submit"]:hover {
@@ -59,15 +65,27 @@ form input[type="submit"]:hover {
 /* Enlace de vuelta en ruta.html */
 a {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 30px; /* Aumento del margen superior */
+    padding: 15px 30px; /* Aumento del padding para igualar tamaño */
     background-color: #007bff; /* Fondo azul */
     color: #fff; /* Texto blanco */
     text-decoration: none;
-    border-radius: 5px; /* Borde redondeado */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    border-radius: 8px; /* Borde redondeado */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra aumentada */
 }
 
 a:hover {
     background-color: #0056b3; /* Fondo azul oscuro */
+}
+
+/* Estilos específicos para enlaces verdes */
+a.green-link {
+    background-color: #4CAF50; /* Fondo verde */
+    color: #fff; /* Texto blanco */
+    cursor: pointer; /* Cursor de mano */
+    width: 100%; /* Ancho al 100% para expandirse horizontalmente */
+}
+
+a.green-link:hover {
+    background-color: #3e8e41; /* Fondo verde oscuro */
 }
