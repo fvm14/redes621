@@ -21,7 +21,11 @@ class Vertice:
 class Grafica:
     def __init__(self):
         self.vertices = {}
-        self.configurar_grafica()
+        self.error = None  # Variable para almacenar el mensaje de error
+        try:
+            self.configurar_grafica()
+        except ValueError as e:
+            self.error = str(e)  # Captura el mensaje de error
 
     def agregarVertice(self, id):
         if id not in self.vertices:
@@ -125,4 +129,6 @@ class Grafica:
         for node in set(df['nodo_origen']).union(set(df['nodo_destino'])):
             self.agregarVertice(node)
         for index, row in df.iterrows():
+            if row['peso'] < 0:
+                raise ValueError("Arista con peso negativo, no es posible usar Dijkstra")
             self.agregarArista(row['nodo_origen'], row['nodo_destino'], row['peso'])

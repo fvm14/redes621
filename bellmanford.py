@@ -6,7 +6,7 @@ import base64
 
 class BellmanFord:
     def __init__(self):
-        self.G = nx.Graph()  # Usamos un grafo no dirigido
+        self.G = nx.DiGraph()  # Cambiado a grafo dirigido
         self.load_data()
 
     def load_data(self):
@@ -22,7 +22,7 @@ class BellmanFord:
         return path, distance
 
     def graficar(self):
-        pos = nx.spring_layout(self.G)
+        pos = nx.shell_layout(self.G)  # Cambiado a shell layout
         labels = nx.get_edge_attributes(self.G, 'weight')
         plt.figure()
         nx.draw(self.G, pos, with_labels=True, node_color='skyblue', node_size=1500, font_weight='bold', arrows=True, arrowsize=20)
@@ -35,7 +35,7 @@ class BellmanFord:
         return image_data
 
     def graficarCamino(self, path):
-        pos = nx.spring_layout(self.G)
+        pos = nx.shell_layout(self.G)  # Cambiado a shell layout
         labels = nx.get_edge_attributes(self.G, 'weight')
         plt.figure()
         nx.draw(self.G, pos, with_labels=True, node_color='skyblue', node_size=1500, font_weight='bold')
