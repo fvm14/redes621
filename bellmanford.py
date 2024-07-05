@@ -10,7 +10,7 @@ class BellmanFord:
         self.load_data()
 
     def load_data(self):
-        df = pd.read_csv('data.csv')
+        df = pd.read_csv('data2.csv')
         for node in set(df['nodo_origen']).union(set(df['nodo_destino'])):
             self.G.add_node(node)
         for index, row in df.iterrows():

@@ -4,20 +4,16 @@ from bellmanford import BellmanFord
 
 app = Flask(__name__)
 
+grafo = Grafica()
+bellman_ford_grafo = BellmanFord()
+
 @app.route('/')
 def index():
-    grafo = Grafica()
-    if grafo.error:
-        return render_template('index2.html', error_message=grafo.error)
     image_data = grafo.graficar()
     return render_template('index2.html', image_data=image_data)
 
 @app.route('/dijkstra', methods=['GET', 'POST'])
 def dijkstra():
-    grafo = Grafica()
-    if grafo.error:
-        return render_template('index.html', error_message=grafo.error)
-    
     if request.method == 'POST':
         return redirect(url_for('calcular_rutaDijkstra'))
     else:
@@ -26,13 +22,11 @@ def dijkstra():
 
 @app.route('/calcular_ruta', methods=['GET', 'POST'])
 def calcular_rutaDijkstra():
-    grafo = Grafica()
-    if grafo.error:
-        return render_template('index.html', error_message=grafo.error)
+    global grafo
 
     if request.method == 'POST':
-        nodo_inicial = int(request.form['nodo_inicial'])
-        nodo_final = int(request.form['nodo_final'])
+        nodo_inicial = request.form['nodo_inicial']
+        nodo_final = request.form['nodo_final']
 
         # Verificar que los nodos existen en el grafo
         if nodo_inicial not in grafo.vertices or nodo_final not in grafo.vertices:
@@ -46,13 +40,15 @@ def calcular_rutaDijkstra():
         # Generar imagen con el camino encontrado
         image_data = grafo.graficarCamino(camino)
 
+        # Reiniciar estado de los vértices para futuros cálculos
+        grafo = Grafica()
+
         return render_template('ruta.html', camino=camino, distancia=distancia, image_data=image_data)
 
     return redirect(url_for('index'))
 
 @app.route('/bellmanFord', methods=['GET', 'POST'])
 def bellmanFord():
-    bellman_ford_grafo = BellmanFord()
     if request.method == 'POST':
         return redirect(url_for('calcular_rutaBellmanFord'))
     else:
@@ -61,11 +57,11 @@ def bellmanFord():
 
 @app.route('/calcular_rutaBellmanFord', methods=['GET', 'POST'])
 def calcular_rutaBellmanFord():
-    bellman_ford_grafo = BellmanFord()
+    global bellman_ford_grafo
 
     if request.method == 'POST':
-        nodo_inicial = int(request.form['nodo_inicial'])
-        nodo_final = int(request.form['nodo_final'])
+        nodo_inicial = request.form['nodo_inicial']
+        nodo_final = request.form['nodo_final']
 
         # Verificar que los nodos existen en el grafo
         if nodo_inicial not in bellman_ford_grafo.G.nodes or nodo_final not in bellman_ford_grafo.G.nodes:
@@ -84,9 +80,13 @@ def calcular_rutaBellmanFord():
 
 @app.route('/grafo_graficado')
 def grafo_graficado():
-    grafo = Grafica()
     image_data = grafo.graficar()
     return render_template('graficooriginal.html', image_data=image_data)
+
+@app.route('/grafoBF')
+def grafoBF():
+    image_data = bellman_ford_grafo.graficar()
+    return render_template('grafoBF.html', image_data=image_data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
