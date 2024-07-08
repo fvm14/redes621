@@ -21,11 +21,11 @@ class Vertice:
 class Grafica:
     def __init__(self):
         self.vertices = {}
-        self.error = None  # Variable para almacenar el mensaje de error
+        self.error = None  
         try:
             self.configurar_grafica()
         except ValueError as e:
-            self.error = str(e)  # Captura el mensaje de error
+            self.error = str(e)  
 
     def agregarVertice(self, id):
         if id not in self.vertices:
@@ -96,7 +96,7 @@ class Grafica:
 
         buf = io.BytesIO()
         plt.savefig(buf, format="png")
-        plt.close()  # Cerrar la figura para limpiar el estado
+        plt.close()  
         data = base64.b64encode(buf.getbuffer()).decode("ascii")
         return data
 
@@ -114,13 +114,13 @@ class Grafica:
         path_edges = list(zip(camino, camino[1:]))
         nx.draw_networkx_edges(G, pos, edgelist=path_edges, edge_color='r', width=2)
 
-        # Mostrar etiquetas de peso en las aristas del camino
+       
         path_labels = {(camino[i], camino[i+1]): G[camino[i]][camino[i+1]]['weight'] for i in range(len(camino)-1)}
         nx.draw_networkx_edge_labels(G, pos, edge_labels=path_labels)
 
         buf = io.BytesIO()
         plt.savefig(buf, format="png")
-        plt.close()  # Cerrar la figura para limpiar el estado
+        plt.close()  
         data = base64.b64encode(buf.getbuffer()).decode("ascii")
         return data
 
